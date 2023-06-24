@@ -7,6 +7,7 @@ img = cv2.imread(imgLocation)
 # Convert the image to grayscale
 grayImg = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
+# Invert the grayscale image
 invertedGrayImage = 255 - grayImg
 blurredImg = cv2.GaussianBlur(invertedGrayImage, (21,21),0)
 invertedBlurredImg = 255 - blurredImg
