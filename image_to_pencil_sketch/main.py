@@ -9,12 +9,19 @@ grayImg = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 # Invert the grayscale image
 invertedGrayImage = 255 - grayImg
-blurredImg = cv2.GaussianBlur(invertedGrayImage, (21,21),0)
+
+# Apply Gaussian blur to the inverted grayscale image
+blurredImg = cv2.GaussianBlur(invertedGrayImage, (21,21), 0)
+
+# Invert the blurred image
 invertedBlurredImg = 255 - blurredImg
 
-pencilSketchImage = cv2.divide(grayImg,invertedBlurredImg,scale=256.0)
+# Create the pencil sketch image by dividing the grayscale image by the inverted blurred image
+pencilSketchImage = cv2.divide(grayImg, invertedBlurredImg, scale=256.0)
 
-cv2.imshow('Original Image',img)
+# Display the original image and the pencil sketch image
+cv2.imshow('Original Image', img)
 cv2.imshow('Pencil Sketch Image', pencilSketchImage)
 
+# Wait for a key press to exit the program
 cv2.waitKey(0)
