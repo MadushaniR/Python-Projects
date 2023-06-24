@@ -1,5 +1,6 @@
 import cv2
 
+#load the image from its location
 imgLocation = 'D:\Projects\image_to_pencil_sketch\garfield.jpg'
 img = cv2.imread(imgLocation)
 
